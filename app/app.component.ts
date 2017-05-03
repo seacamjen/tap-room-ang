@@ -13,7 +13,7 @@ import { Keg } from './keg.model';
       </div>
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
-        <li><a (click)="toggleAdmin()">Admin View</a></li>
+        <li *ngIf="!adminView"><a (click)="toggleAdmin()">Admin View</a></li>
         <li *ngIf="adminView"><a (click)="toggleButtons()">Customer View</a></li>
       </ul>
     </div>
@@ -29,7 +29,11 @@ import { Keg } from './keg.model';
 })
 
 export class AppComponent {
-  allKegs: Keg[] = [];
+  allKegs: Keg[] = [
+    new Keg('Olympia Lager', 'Olympia Brewing', 3, 4.78),
+    new Keg('805', 'Firestone Walker', 4, 4.7),
+    new Keg('Free Range Red', 'Laurelwood Brewing', 6, 6.2)
+  ];
   adminView = false;
 
   addKeg(newKegFromChild: Keg) {

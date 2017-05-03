@@ -4,7 +4,6 @@
 
   * Event Bindings
     MVP
-    - Admin mode to show buttons for forms
     - Show actual CRUD forms when clicking buttons
 
   * Property Bindings
@@ -22,6 +21,7 @@
   * Property Bindings
     MVP
     - Low pint qty color coding
+    - Admin mode to show buttons for forms
 
   * Methods/ Functions
     - Subtract pints on purchase
