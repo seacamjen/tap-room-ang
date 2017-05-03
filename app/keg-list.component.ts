@@ -4,15 +4,39 @@ import { Keg } from './keg.model';
 @Component({
   selector: `keg-list`,
   template: `
-    <div *ngFor="let currentKeg of childKegList">
-      <ul>
-        <h3>{{currentKeg.name}}</h3>
-        <h4>{{currentKeg.brand}}</h4>
-        <li>Price Per Pint: {{currentKeg.price}}</li>
-        <li>Alcohol Content: {{currentKeg.alcoholContent}}</li>
-        <li>Pints Remaining: {{currentKeg.pints}}</li>
-      </ul>
-      <button [class]="warningColor(currentKeg)" (click)="subtractPint(currentKeg)">Sell Pint</button>
+      <div class="row">
+        <div *ngFor="let currentKeg of childKegList" class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-5">
+                  <img [src]="quantityImage(currentKeg)" alt="beer glass" />
+                </div>
+                <div class="col-md-7">
+                  <h2>{{currentKeg.name}}</h2>
+                  <h3>{{currentKeg.brand}}</h3>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3>{{currentKeg.price}}</h3>
+                    </div>
+                    <div class="col-md-6">
+                      <h3>{{currentKeg.alcoholContent}}</h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4>Price Per Pint</h4>
+                    </div>
+                    <div class="col-md-6">
+                      <h4>ABV</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button [class]="warningColor(currentKeg)" (click)="subtractPint(currentKeg)">Sell Pint</button>
+          </div>
+        </div>
     </div>
   `
 })
@@ -23,6 +47,16 @@ export class KegListComponent {
 
   subtractPint(currentKeg: Keg) {
     currentKeg.pints -= 1;
+  }
+
+  quantityImage(currentKeg) {
+    if(currentKeg.pints <=25) {
+      return "./resources/images/empty.jpg";
+    } else if (currentKeg.pints >= 26 && currentKeg.pints <=75 ) {
+      return "./resources/images/halffull.jpg";
+    } else {
+      return "./resources/images/full.jpg";
+    }
   }
 
   warningColor(currentKeg) {

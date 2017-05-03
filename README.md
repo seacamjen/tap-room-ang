@@ -1,9 +1,6 @@
 ##Planning
 
 1. Setup / Components
-  * Class
-    MVP
-    - Keg: public name: string, public brand: string, public price: number, public alcoholContent: number, public pints: number
 
   * Event Bindings
     MVP
@@ -11,17 +8,24 @@
     - Show actual CRUD forms when clicking buttons
 
   * Property Bindings
-    MVP
-    - Low pint qty color coding
-    - Alcohol content color coding
-    - Price color coding
     Tier 1 Additions
     - Theme custom UI
+
+  * Component Templates
+    - Edit Keg
+
+2. Completed Features
+  * Class
+    MVP
+    - Keg: public name: string, public brand: string, public price: number, public alcoholContent: number, public pints: number
+
+  * Property Bindings
+    MVP
+    - Low pint qty color coding
 
   * Methods/ Functions
     - Subtract pints on purchase
 
   * Component Templates
     - List Kegs    
-    - Edit Keg
     - New Keg
