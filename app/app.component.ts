@@ -5,6 +5,7 @@ import { Keg } from './keg.model';
   selector: 'app-root',
   template:`
   <div class="container">
+    <keg-list [childKegList]="allKegs"></keg-list>
     <new-keg (newKegSender)="addKeg($event)"></new-keg>
   </div>
   `
