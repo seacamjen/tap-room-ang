@@ -1,10 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Keg } from './keg.model';
 
-@Component({
-  selector: 'new-keg',
+@Component ({
+  selector: 'edit-keg',
   template: `
-    <h3>Add New Keg</h3>
     <div>
       <label>Enter Name:</label>
       <input #name>
@@ -25,11 +24,8 @@ import { Keg } from './keg.model';
   `
 })
 
-export class NewKegComponent {
-  @Output() newKegSender = new EventEmitter();
+export class EditKegComponent {
+  @Input() childSelectedKeg: Keg;
+  @Output() editSender = new EventEmitter();
 
-  save(name: string, brand: string, price: string, alcoholContent: string){
-    var newKeg: Keg = new Keg(name, brand, parseInt(price), parseInt(alcoholContent));
-    this.newKegSender.emit(newKeg);
-  }
 }

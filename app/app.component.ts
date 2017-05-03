@@ -5,6 +5,7 @@ import { Keg } from './keg.model';
   selector: 'app-root',
   template:`
   <div class="container">
+    <h1>Tappity Taps</h1>
     <keg-list [childKegList]="allKegs"></keg-list>
     <new-keg (newKegSender)="addKeg($event)"></new-keg>
   </div>
@@ -17,4 +18,9 @@ export class AppComponent {
   addKeg(newKegFromChild: Keg) {
     this.allKegs.push(newKegFromChild);
   }
+
+  // updatePints(pintsFromChild: Keg) {
+  //
+  // }
+  // (pintsSender)="updatePints($event)"
 }
