@@ -37,6 +37,7 @@ import { Keg } from './keg.model';
             <button *ngIf="admin" [class]="warningColor(currentKeg)" (click)="subtractPint(currentKeg)">Sell Pint</button>
             <button *ngIf="admin" [class]="warningColor(currentKeg)" (click)="subtractGrowler(currentKeg)">Sell Growler</button>
             <button *ngIf="admin" [class]="warningColor(currentKeg)" (click)="subtractLargeGrowler(currentKeg)">Sell Large Growler</button>
+            <button *ngIf="admin" (click)="kegToEdit(currentKeg)">Edit Keg</button>
           </div>
         </div>
     </div>
@@ -47,6 +48,11 @@ export class KegListComponent {
   @Input() childKegList: Keg [];
   @Input() admin: boolean;
   @Output() pintsSender = new EventEmitter();
+  @Output() kegToEditSender = new EventEmitter();
+
+  kegToEdit(currentKeg: Keg) {
+    this.kegToEditSender.emit(currentKeg);
+  }
 
   subtractPint(currentKeg: Keg) {
     currentKeg.pints -= 1;
@@ -79,4 +85,5 @@ export class KegListComponent {
       return "btn-default";
     }
   }
+
 }

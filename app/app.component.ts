@@ -22,10 +22,17 @@ import { Keg } from './keg.model';
     </div>
   </nav>
   <div class="container">
-    <div *ngIf="adminView">
-      <new-keg (newKegSender)="addKeg($event)"></new-keg>
+    <div *ngIf="adminView" class="row">
+      <div class="col-md-6">
+        <new-keg (newKegSender)="addKeg($event)"></new-keg>
+      </div>
+      <div class="col-md-6">
+        <edit-keg [kegToEdit]="selectedKeg" (editSender)="finishedEditing()"></edit-keg>
+      </div>
     </div>
-    <keg-list [childKegList]="allKegs" [admin]="adminView"></keg-list>
+    <div>
+    </div>
+    <keg-list [childKegList]="allKegs" [admin]="adminView" (kegToEditSender)="editKeg($event)"></keg-list>
   </div>
   `
 })
@@ -38,9 +45,21 @@ export class AppComponent {
   ];
   adminView = false;
   addKegForm = false;
+  selectedKeg = null;
 
   addKeg(newKegFromChild: Keg) {
     this.allKegs.push(newKegFromChild);
+  }
+
+  editKeg(clickedKeg) {
+    console.log(clickedKeg);
+    this.selectedKeg = clickedKeg;
+    console.log(this.selectedKeg);
+  }
+
+  finishedEditing() {
+    this.selectedKeg = null;
+    // editView = false;
   }
 
   toggleAdmin() {

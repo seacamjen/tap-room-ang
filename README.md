@@ -6,9 +6,6 @@
     Tier 1 Additions
     - Theme custom UI
 
-  * Component Templates
-    - Edit Keg
-
   * Misc/ Further
     - Other items from further exploration section (pipes, etc.)
 
@@ -32,6 +29,7 @@
   * Component Templates
     - List Kegs    
     - New Keg
+    - Edit Keg
 
   * Misc/ Further
     - Add guzzler and gobbler (growler and large growler)
