@@ -23,6 +23,7 @@ import { Keg } from './keg.model';
       <input #alcoholContent>
     </div>
     <button (click)="save(name.value, brand.value, price.value, alcoholContent.value); name.value=''; brand.value=''; price.value=''; alcoholContent.value=''">Save</button>
+    <button (click)="cancelAdd()">Cancel</button>
   </div>
   `
 })
@@ -30,9 +31,14 @@ import { Keg } from './keg.model';
 export class NewKegComponent {
   @Input() kegFormShow: boolean;
   @Output() newKegSender = new EventEmitter();
+  @Output() cancelAddForm = new EventEmitter();
 
   save(name: string, brand: string, price: string, alcoholContent: string){
     var newKeg: Keg = new Keg(name, brand, parseInt(price), parseInt(alcoholContent));
     this.newKegSender.emit(newKeg);
+  }
+
+  cancelAdd() {
+    this.cancelAddForm.emit();
   }
 }

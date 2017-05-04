@@ -25,7 +25,7 @@ import { Keg } from './keg.model';
   <div class="container">
     <div *ngIf="adminView" class="row">
       <div class="col-md-6">
-        <new-keg [kegFormShow]="viewKegForm" (newKegSender)="addKeg($event)"></new-keg>
+        <new-keg [kegFormShow]="viewKegForm" (newKegSender)="addKeg($event)" (cancelAddForm)="hideKegForm()"></new-keg>
       </div>
       <div class="col-md-6">
         <edit-keg [kegToEdit]="selectedKeg" (editSender)="finishedEditing()"></edit-keg>
@@ -66,6 +66,10 @@ export class AppComponent {
 
   showKegForm() {
     this.viewKegForm = true;
+  }
+
+  hideKegForm() {
+    this.viewKegForm = false;
   }
 
   toggleAdmin() {
