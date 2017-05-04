@@ -4,8 +4,14 @@ import { Keg } from './keg.model';
 @Component({
   selector: `keg-list`,
   template: `
+      <select (change)="onChange($event.target.value)">
+        <option value="allAbv" selected="selected">All Beers</option>
+        <option value="highAbv">High ABV Beers</option>
+        <option value="lowAbv">Low ABV Beers</option>
+      </select>
+
       <div class="row">
-        <div *ngFor="let currentKeg of childKegList" class="col-md-6">
+        <div *ngFor="let currentKeg of childKegList | abv:filterByAbv" class="col-md-6">
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="row">
@@ -49,6 +55,12 @@ export class KegListComponent {
   @Input() admin: boolean;
   @Output() pintsSender = new EventEmitter();
   @Output() kegToEditSender = new EventEmitter();
+
+  filterByAbv: string = "allAbv";
+
+  onChange(optionFromMenu) {
+    this.filterByAbv = optionFromMenu;
+  }
 
   kegToEdit(currentKeg: Keg) {
     this.kegToEditSender.emit(currentKeg);
