@@ -6,9 +6,6 @@
     Tier 1 Additions
     - Theme custom UI
 
-  * Misc/ Further
-    - Other items from further exploration section (pipes, etc.)
-
 2. Completed Features
   * Class
     MVP
@@ -37,3 +34,6 @@
   * UI
     - Get text on header image
     - Find font for header/ headings
+
+  * Misc/ Further
+    - Other items from further exploration section (pipes, etc.)

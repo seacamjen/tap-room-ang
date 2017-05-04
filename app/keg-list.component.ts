@@ -10,7 +10,7 @@ import { Keg } from './keg.model';
         <option value="lowAbv">Low ABV Beers</option>
       </select>
 
-      <select (change)="onChangeFull($event.target.value)">
+      <select *ngIf="admin" (change)="onChangeFull($event.target.value)">
         <option value="full">Full Keg</option>
         <option value="half">Half Keg</option>
         <option value="low">Low Keg</option>

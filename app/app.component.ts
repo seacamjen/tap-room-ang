@@ -14,6 +14,7 @@ import { Keg } from './keg.model';
       </div>
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
+        <li *ngIf="adminView"><a (click)="showKegForm()">Add Keg</a></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <li *ngIf="!adminView"><a (click)="toggleAdmin()">Admin View</a></li>
@@ -24,7 +25,7 @@ import { Keg } from './keg.model';
   <div class="container">
     <div *ngIf="adminView" class="row">
       <div class="col-md-6">
-        <new-keg (newKegSender)="addKeg($event)"></new-keg>
+        <new-keg [kegFormShow]="viewKegForm" (newKegSender)="addKeg($event)"></new-keg>
       </div>
       <div class="col-md-6">
         <edit-keg [kegToEdit]="selectedKeg" (editSender)="finishedEditing()"></edit-keg>
@@ -44,11 +45,12 @@ export class AppComponent {
     new Keg('Free Range Red', 'Laurelwood Brewing', 6, 6.2)
   ];
   adminView = false;
-  addKegForm = false;
+  viewKegForm = false;
   selectedKeg = null;
 
   addKeg(newKegFromChild: Keg) {
     this.allKegs.push(newKegFromChild);
+    this.viewKegForm = false;
   }
 
   editKeg(clickedKeg) {
@@ -60,6 +62,10 @@ export class AppComponent {
   finishedEditing() {
     this.selectedKeg = null;
     // editView = false;
+  }
+
+  showKegForm() {
+    this.viewKegForm = true;
   }
 
   toggleAdmin() {
