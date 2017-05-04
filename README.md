@@ -2,10 +2,6 @@
 
 1. Setup / Components
 
-  * Event Bindings
-    MVP
-    - Make "Sell Pint" button appear only in admin mode
-
   * Property Bindings
     Tier 1 Additions
     - Theme custom UI
@@ -13,18 +9,20 @@
   * Component Templates
     - Edit Keg
 
-    * UI
-      - Get text on header image
-      - Find font for header/ headings
+  * UI
+    - Find font for header/ headings ^
 
-    * Misc/ Further
-    - Add guzzler and gobbler (growler and large growler)
+  * Misc/ Further
     - Other items from further exploration section (pipes, etc.)
 
 2. Completed Features
   * Class
     MVP
     - Keg: public name: string, public brand: string, public price: number, public alcoholContent: number, public pints: number
+
+  * Event Bindings
+    MVP
+    - Make "Sell Pint" button appear only in admin mode
 
   * Property Bindings
     MVP
@@ -37,3 +35,9 @@
   * Component Templates
     - List Kegs    
     - New Keg
+
+  * Misc/ Further
+    - Add guzzler and gobbler (growler and large growler)
+
+  * UI
+    - Get text on header image

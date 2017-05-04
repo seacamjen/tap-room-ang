@@ -5,6 +5,7 @@ import { Keg } from './keg.model';
   selector: 'app-root',
   template:`
   <div class="container-fluid header">
+    <h1>Tappity Taps</h1>
   </div>
   <nav class="navbar navbar-default" data-spy="affix" data-offset-top="200">
     <div class="container-fluid">
@@ -19,7 +20,7 @@ import { Keg } from './keg.model';
     </div>
   </nav>
   <div class="container">
-    <keg-list [childKegList]="allKegs"></keg-list>
+    <keg-list [childKegList]="allKegs" [admin]="adminView"></keg-list>
 
     <div *ngIf="adminView">
       <new-keg (newKegSender)="addKeg($event)"></new-keg>
