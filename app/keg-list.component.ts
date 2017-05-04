@@ -10,8 +10,16 @@ import { Keg } from './keg.model';
         <option value="lowAbv">Low ABV Beers</option>
       </select>
 
+      <select (change)="onChangeFull($event.target.value)">
+        <option value="full">Full Keg</option>
+        <option value="half">Half Keg</option>
+        <option value="low">Low Keg</option>
+        <option value="empty">Empty Keg</option>
+        <option value="nonempty" selected="selected">All Kegs With Something</option>
+      </select>
+
       <div class="row">
-        <div *ngFor="let currentKeg of childKegList | abv:filterByAbv" class="col-md-6">
+        <div *ngFor="let currentKeg of childKegList | abv:filterByAbv | fullness:filterByFullness" class="col-md-6">
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="row">
@@ -57,9 +65,14 @@ export class KegListComponent {
   @Output() kegToEditSender = new EventEmitter();
 
   filterByAbv: string = "allAbv";
+  filterByFullness: string = "nonempty";
 
   onChange(optionFromMenu) {
     this.filterByAbv = optionFromMenu;
+  }
+
+  onChangeFull(selectionFromMenu) {
+    this.filterByFullness = selectionFromMenu;
   }
 
   kegToEdit(currentKeg: Keg) {

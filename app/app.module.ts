@@ -8,12 +8,13 @@ import { NewKegComponent } from './new-keg.component';
 import { KegListComponent } from './keg-list.component';
 import { EditKegComponent } from './edit-keg.component';
 import { AbvPipe } from './abv.pipe';
+import { FullnessPipe } from './fullness.pipe';
 
 
 @NgModule({
   imports: [ BrowserModule, FormsModule, NoopAnimationsModule,
              MaterialModule ],
-  declarations: [ AppComponent, NewKegComponent, KegListComponent, EditKegComponent, AbvPipe ],
+  declarations: [ AppComponent, NewKegComponent, KegListComponent, EditKegComponent, AbvPipe, FullnessPipe ],
   bootstrap: [ AppComponent ]
 })
 
