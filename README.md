@@ -9,9 +9,6 @@
   * Component Templates
     - Edit Keg
 
-  * UI
-    - Find font for header/ headings ^
-
   * Misc/ Further
     - Other items from further exploration section (pipes, etc.)
 
@@ -41,3 +38,4 @@
 
   * UI
     - Get text on header image
+    - Find font for header/ headings

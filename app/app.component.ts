@@ -14,17 +14,18 @@ import { Keg } from './keg.model';
       </div>
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
         <li *ngIf="!adminView"><a (click)="toggleAdmin()">Admin View</a></li>
         <li *ngIf="adminView"><a (click)="toggleButtons()">Customer View</a></li>
       </ul>
     </div>
   </nav>
   <div class="container">
-    <keg-list [childKegList]="allKegs" [admin]="adminView"></keg-list>
-
     <div *ngIf="adminView">
       <new-keg (newKegSender)="addKeg($event)"></new-keg>
     </div>
+    <keg-list [childKegList]="allKegs" [admin]="adminView"></keg-list>
   </div>
   `
 })
@@ -36,6 +37,7 @@ export class AppComponent {
     new Keg('Free Range Red', 'Laurelwood Brewing', 6, 6.2)
   ];
   adminView = false;
+  addKegForm = false;
 
   addKeg(newKegFromChild: Keg) {
     this.allKegs.push(newKegFromChild);
@@ -49,8 +51,4 @@ export class AppComponent {
     this.adminView = false;
   }
 
-  // updatePints(pintsFromChild: Keg) {
-  //
-  // }
-  // (pintsSender)="updatePints($event)"
 }

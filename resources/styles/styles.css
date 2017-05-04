@@ -17,3 +17,6 @@
   transition-duration:1s;
   transition-timing-function: ease;
  }
+.center {
+  text-align: center;
+}
