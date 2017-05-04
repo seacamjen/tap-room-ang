@@ -35,6 +35,8 @@ import { Keg } from './keg.model';
               </div>
             </div>
             <button [class]="warningColor(currentKeg)" (click)="subtractPint(currentKeg)">Sell Pint</button>
+            <button [class]="warningColor(currentKeg)" (click)="subtractGrowler(currentKeg)">Sell Growler</button>
+            <button [class]="warningColor(currentKeg)" (click)="subtractLargeGrowler(currentKeg)">Sell Large Growler</button>
           </div>
         </div>
     </div>
@@ -47,6 +49,14 @@ export class KegListComponent {
 
   subtractPint(currentKeg: Keg) {
     currentKeg.pints -= 1;
+  }
+
+  subtractGrowler(currentKeg: Keg) {
+    currentKeg.pints -= 2;
+  }
+
+  subtractLargeGrowler(currentKeg: Keg) {
+    currentKeg.pints -= 4;
   }
 
   quantityImage(currentKeg) {

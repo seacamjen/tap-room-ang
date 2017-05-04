@@ -4,7 +4,7 @@
 
   * Event Bindings
     MVP
-    - Show actual CRUD forms when clicking buttons
+    - Make "Sell Pint" button appear only in admin mode
 
   * Property Bindings
     Tier 1 Additions
@@ -12,6 +12,14 @@
 
   * Component Templates
     - Edit Keg
+
+    * UI
+      - Get text on header image
+      - Find font for header/ headings
+
+    * Misc/ Further
+    - Add guzzler and gobbler (growler and large growler)
+    - Other items from further exploration section (pipes, etc.)
 
 2. Completed Features
   * Class
